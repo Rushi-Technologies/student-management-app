@@ -7,228 +7,182 @@
     <link rel="shortcut icon" href="https://cdn-icons-png.flaticon.com/512/470/470199.png">
     <meta charset="UTF-8">
     <title>Student App</title>
+    <link rel="stylesheet" href="/css/style.css">
 </head>
 
-<style>
-    body {
-        overflow-x: hidden;
-        scroll-behavior: smooth;
-    }
-
-    nav {
-        background-color: navy !important;
-
-    }
-
-    .navbar-brand {
-        color: whitesmoke !important;
-        font-size: 50px !important;
-        font-weight: bold;
-    }
-
-    .navbar-trainer {
-        color: whitesmoke !important;
-        font-size: 35px !important;
-        font-weight: bold;
-    }
-
-    .card {
-        box-shadow: rgba(14, 30, 37, 0.12) 1px 2px 2px 0px, rgba(14, 30, 37, 0.32) 1px 2px 2px 0px;
-    }
-
-    .card-body {
-        text-align: center;
-    }
-
-    .table-responsive {
-        box-shadow: rgba(60, 64, 67, 0.3) 0px 1px 2px 0px, rgba(60, 64, 67, 0.15) 0px 2px 6px 2px;
-    }
-
-    th {
-        text-align: center;
-        font-size: 18px !important;
-    }
-
-    td {
-        text-align: center;
-        font-size: 15px;
-        font-weight: 500;
-    }
-
-    label {
-        font-weight: 500;
-    }
-
-    .fixed {
-        position: relative;
-        bottom: 50px;
-        right: 5%;
-        left: 5%;
-        width: 90%;
-        text-align: center;
-        background: black;
-        border: 1px solid blue;
-    }
-</style>
-
 <body>
+    <!-- App script moved to /js/app.js -->
+    <!-- script will be loaded after bootstrap bundle at the end of body -->
 
-    <nav class="navbar navbar-expand-sm navbar-light mb-5">
+    <!-- Header / Hero promoting the training center -->
+    <header class="site-header py-4">
         <div class="container">
-            <a class="navbar-brand text-bold" href="#"><i class="fa fa-align-center"
-                    aria-hidden="true">&nbsp;&nbsp;Rushi Technologies. Training & Devlopment Center. </i></a>
-        </div>
-    </nav>
-
-    <main>
-        <div class="container p-4">
-            <div class="head_section">
-                <div class="row row-cols-1 row-cols-md-4 g-3">
-                    <div class="col">
-                        <a href="#exampleModalToggle1" data-bs-toggle="modal" role="button"
-                            style="text-decoration: none; color: white;">
-                            <div class="card h-100 bg-success">
-                                <div class="card-body">
-                                    <h5 class="text-light"><i class="fa fa-plus"></i>&nbsp;Add Student</h5>
+            <div class="hero-card mx-auto p-4">
+                <div class="row align-items-center">
+                    <div class="col-12">
+                        <div class="d-flex align-items-center flex-column flex-md-row justify-content-md-start justify-content-center gap-3">
+                            <div class="d-flex align-items-center gap-3">
+                                <span class="wordmark">Rushi Tech</span>
+                                <div>
+                                    <h1 class="h4 mb-1">Rushi Technologies - Training Center</h1>
+                                    <div class="text-muted small">Upskill with instructor-led classes, hands-on labs & placement support</div>
                                 </div>
                             </div>
-                        </a>
+                        </div>
                     </div>
-                    <div class="col">
-                        <a href="#exampleModalToggle2" data-bs-toggle="modal" role="button"
-                            style="text-decoration: none; color: white;">
-                            <div class="card h-100 bg-primary">
-                                <div class="card-body">
-                                    <h5 class="text-light"><i class="fa fa-area-chart"
-                                            aria-hidden="true"></i>&nbsp;Update Student</h5>
-                                </div>
-                            </div>
-                        </a>
-                    </div>
-                    <div class="col">
-                        <a href="#exampleModalToggle3" data-bs-toggle="modal" role="button"
-                            style="text-decoration: none; color: white;">
-                            <div class="card h-100 bg-danger">
-                                <div class="card-body">
-                                    <h5 class="text-light"><i class="fa fa-trash"></i>&nbsp;Delete Student</h5>
-                                </div>
-                            </div>
-                        </a>
-                    </div>
-                    <div class="col">
-                        <a href="#deleteAllModal4" data-bs-toggle="modal" role="button"
-                            style="text-decoration: none; color: white;">
-                            <div class="card h-100 bg-dark">
-                                <div class="card-body">
-                                    <h5 class="text-light"><i class="fa fa-warning"></i>&nbsp;Delete All</h5>
-                                </div>
-                            </div>
-                        </a>
+                </div>
+                <div class="row mt-3">
+                    <div class="col-12 text-md-start text-center">
+                        <div class="d-flex flex-wrap gap-3 small text-muted justify-content-md-start justify-content-center">
+                            <div><strong>Live Classes</strong> · Weekly batches</div>
+                            <div><strong>Labs</strong> · Hands-on projects</div>
+                            <div><strong>Placement</strong> · Mock interviews</div>
+                            <div><strong>Certifications</strong> · Industry recognized</div>
+                        </div>
                     </div>
                 </div>
             </div>
-            <br>
-            <div class="items_table mt-5 mb-4">
-                <div class="table-responsive p-2">
-                    <h4 class="text-center p-2 class=" p-1" mt-2"
-                        style="font-family:'Times New Roman', Times, serif; font-weight: bold;">Student Management
-                        System</h4>
-                    <table class="table table-bordered table-hover mt-5">
-                        <thead class="bg-warning">
+        </div>
+    </header>
 
-                            <th>SI.NO</th>
-                            <th>ID</th>
-                            <th>Name</th>
-                            <th>Email</th>
-                            <th>Phone</th>
-                            <th>Gender</th>
-                            <th>Age</th>
-                            <th>Course</th>
-
-                        </thead>
-                        <tbody>
-                            <tr th:each="student, index : ${students}">
-                                <td th:text="${index.index + 1}"></td>
-                                <td th:text="${student.id}"></td>
-                                <td th:text="${student.name}"></td>
-                                <td th:text="${student.email}"></td>
-                                <td th:text="${student.phone}"></td>
-                                <td th:text="${student.gender}"></td>
-                                <td th:text="${student.age}"></td>
-                                <td th:text="${student.course}"></td>
-                            </tr>
-
-                        </tbody>
-                    </table>
-                </div>
+    <!-- Main content -->
+    <div class="container my-4">
+        <div class="d-flex justify-content-between align-items-center mb-3">
+            <h2 class="mb-0">Student Management</h2>
+            <div>
+                <button class="btn btn-success" data-bs-toggle="modal" data-bs-target="#exampleModalToggle1">+ Add Student</button>
+                <button id="refreshBtn" class="btn btn-outline-secondary ms-2">Refresh</button>
             </div>
         </div>
-    </main>
 
+        <!-- message box -->
+        <div id="messageBox"></div>
 
-    <!-- model for create-->
-    <div class="modal fade" id="exampleModalToggle1" aria-hidden="true" aria-labelledby="exampleModalToggleLabel"
-        tabindex="-1">
+        <!-- Students table -->
+        <div class="table-responsive">
+            <table class="table table-striped table-bordered">
+                <thead class="table-light">
+                    <tr>
+                        <th>#</th>
+                        <th>ID</th>
+                        <th>Name</th>
+                        <th>Email</th>
+                        <th>Phone</th>
+                        <th>Gender</th>
+                        <th>Age</th>
+                        <th>Course</th>
+                        <th>Actions</th>
+                    </tr>
+                </thead>
+                <tbody id="studentsTableBody">
+                    <!-- rows inserted by JS -->
+                </tbody>
+            </table>
+        </div>
+    </div>
+
+    <!-- Create Student Modal -->
+    <div class="modal fade" id="exampleModalToggle1" aria-hidden="true" aria-labelledby="exampleModalToggle1Label" tabindex="-1">
         <div class="modal-dialog modal-dialog-centered">
             <div class="modal-content">
                 <div class="modal-body">
-                    <div th:if="${success}" class="alert alert-success" role="alert">
-                        <p th:text="${success}"></p>
-                    </div>
-                    <form class="p-2" th:action="@{/create}" th:object="${student}" method="post">
+                    <form class="p-2" onsubmit="return false;">
                         <center>
-                            <h4 style="font-family: 'Times New Roman', Times, serif;">Add Student</h4>
+                            <h4>Add Student</h4>
                         </center>
-
-                        <div class="row p-2">
-                            <label class="p-1" for="name">Student Name</label>
-                            <input type="text" th:field="*{name}" class="form-control"
-                                placeholder="student name" required>
+                        <div class="row p-1">
+                            <label class="p-1">Name</label>
+                            <input id="createName" type="text" class="form-control" placeholder="Student name" required>
+                            <div class="invalid-feedback"></div>
                         </div>
-
-                        <div class="row p-2">
-                            <label class="p-1" for="email">Email</label>
-                            <input type="text" th:field="*{email}" class="form-control"
-                                placeholder="email address" required>
+                        <div class="row p-1">
+                            <label class="p-1">Email</label>
+                            <input id="createEmail" type="email" class="form-control" placeholder="Email" required>
+                            <div class="invalid-feedback"></div>
                         </div>
-
-                        <div class="row p-2">
-                            <label class="p-1" for="phone">Phone</label>
-                            <input type="tel" th:field="*{phone}" class="form-control"
-                                placeholder="phone number" required>
+                        <div class="row p-1">
+                            <label class="p-1">Phone <i class="fa fa-info-circle text-muted ms-2" data-bs-toggle="tooltip" title="Accepted formats: 9900012028, 09900012028, +91 9900012028"></i></label>
+                            <input id="createPhone" type="tel" class="form-control" placeholder="e.g. +91 9900012028, 09900012028 or 9900012028" pattern="(\\+91|0)?[6-9][0-9]{9}" inputmode="tel">
+                            <div class="invalid-feedback"></div>
                         </div>
-
-                        <div class="row p-2">
+                        <div class="row p-1">
                             <label class="p-1">Gender</label>
-                            <select th:field="*{gender}" class="form-select" required>
-                                <option value="" selected>select option</option>
+                            <select id="createGender" class="form-select" required>
+                                <option value="">select option</option>
                                 <option value="Male">Male</option>
                                 <option value="Female">Female</option>
                             </select>
+                            <div class="invalid-feedback"></div>
                         </div>
-
-                        <div class="row p-2">
-                            <label class="p-1" for="studentSalary">Age</label>
-                            <input type="number" th:field="*{age}" class="form-control" placeholder="age"
-                                required>
+                        <div class="row p-1">
+                            <label class="p-1">Age</label>
+                            <input id="createAge" type="number" class="form-control" placeholder="Age" min="18" max="65">
+                            <div class="invalid-feedback"></div>
                         </div>
-
-                        <div class="row p-2">
-                            <label class="p-1" for="course">Student Course</label>
-                            <select th:field="*{course}" class="form-select" required>
-                                <option value="" selected>select option</option>
-                                <option value="DevOps">DevOps</option>
-                                <option value="Python">Python</option>
-                                <option value="Azure">Azure</option>
-                                <option value="GCP">GCP</option>
-                                <option value="Terraform">Terraform</option>
+                        <div class="row p-1">
+                            <label class="p-1">Course</label>
+                            <select id="createCourse" class="form-select" required>
+                                <option value="">select option</option>
+                                <option>DevOps</option>
+                                <option>Python</option>
+                                <option>Azure</option>
+                                <option>GCP</option>
+                                <option>Terraform</option>
                             </select>
+                            <div class="invalid-feedback"></div>
                         </div>
-
-                        <button type="submit" class="btn btn-success mt-3 mb-2">Add Student</button>
+                        <div id="createErrorMessage" class="alert alert-danger" role="alert" style="display:none;"></div>
+                        <div class="text-center mt-3">
+                            <button id="createSubmit" type="button" class="btn btn-success">Create Student</button>
+                        </div>
                     </form>
                 </div>
+            </div>
+        </div>
+    </div>
+    <div class="modal fade" id="viewModal" aria-hidden="true" aria-labelledby="viewModalLabel" tabindex="-1">
+        <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content">
+                <div class="modal-body">
+                    <center>
+                        <h4 style="font-family: 'Times New Roman', Times, serif;">View Student</h4>
+                    </center>
 
+                    <div class="p-2">
+                        <div class="row p-1">
+                            <label class="p-1">Student ID</label>
+                            <input id="viewId" type="text" class="form-control" readonly>
+                        </div>
+                        <div class="row p-1">
+                            <label class="p-1">Name</label>
+                            <input id="viewName" type="text" class="form-control" readonly>
+                        </div>
+                        <div class="row p-1">
+                            <label class="p-1">Email</label>
+                            <input id="viewEmail" type="text" class="form-control" readonly>
+                        </div>
+                        <div class="row p-1">
+                            <label class="p-1">Phone</label>
+                            <input id="viewPhone" type="text" class="form-control" readonly>
+                        </div>
+                        <div class="row p-1">
+                            <label class="p-1">Gender</label>
+                            <input id="viewGender" type="text" class="form-control" readonly>
+                        </div>
+                        <div class="row p-1">
+                            <label class="p-1">Age</label>
+                            <input id="viewAge" type="text" class="form-control" readonly>
+                        </div>
+                        <div class="row p-1">
+                            <label class="p-1">Course</label>
+                            <input id="viewCourse" type="text" class="form-control" readonly>
+                        </div>
+                        <div class="text-center mt-3">
+                            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                        </div>
+                    </div>
+
+                </div>
             </div>
         </div>
     </div>
@@ -241,11 +195,9 @@
         <div class="modal-dialog modal-dialog-centered">
             <div class="modal-content">
                 <div class="modal-body">
-                    <form class="p-2" th:action="@{/update}" th:object="${student}" method="post">
-                        <!-- Check if errorMessage is present in the model and display it -->
-                        <div th:if="${errorMessage}" class="alert alert-danger" role="alert">
-                            <p th:text="${errorMessage}"></p>
-                        </div>
+                    <form class="p-2" onsubmit="return false;">
+                        <!-- Error message container -->
+                        <div id="updateErrorMessage" class="alert alert-danger" role="alert" style="display: none;"></div>
 
                         <center>
                             <h4 style="font-family: 'Times New Roman', Times, serif;">Update Student</h4>
@@ -253,45 +205,50 @@
 
                         <div class="row p-1">
                             <label class="p-1" for="id">Student ID</label>
-                            <input type="text" th:field="*{id}" class="form-control" placeholder="student id" required>
+                            <input id="updateId" type="text" class="form-control" placeholder="student id" required readonly>
                         </div>
 
                         <div class="row p-1">
                             <label class="p-1" for="name">Student Name</label>
-                            <input type="text" th:field="*{name}" class="form-control"
+                            <input id="updateName" type="text" class="form-control"
                                 placeholder="student name" required>
+                            <div class="invalid-feedback"></div>
                         </div>
 
                         <div class="row p-1">
                             <label class="p-1" for="email">Email</label>
-                            <input type="text" th:field="*{email}" class="form-control"
+                            <input id="updateEmail" type="text" class="form-control"
                                 placeholder="email address" required>
+                            <div class="invalid-feedback"></div>
                         </div>
 
                         <div class="row p-1">
-                            <label class="p-1" for="phone">Phone</label>
-                            <input type="tel" th:field="*{phone}" class="form-control"
-                                placeholder="phone number" required>
+                            <label class="p-1" for="phone">Phone <i class="fa fa-info-circle text-muted ms-2" data-bs-toggle="tooltip" title="Accepted formats: 9900012028, 09900012028, +91 9900012028"></i></label>
+                            <input id="updatePhone" type="tel" class="form-control"
+                                placeholder="e.g. +91 9900012028, 09900012028 or 9900012028" required pattern="(\\+91|0)?[6-9][0-9]{9}" inputmode="tel">
+                            <div class="invalid-feedback"></div>
                         </div>
 
                         <div class="row p-1">
                             <label class="p-1">Gender</label>
-                            <select th:field="*{gender}" class="form-select" required>
+                            <select id="updateGender" class="form-select" required>
                                 <option value="" selected>select option</option>
                                 <option value="Male">Male</option>
                                 <option value="Female">Female</option>
                             </select>
+                            <div class="invalid-feedback"></div>
                         </div>
 
                         <div class="row p-1">
                             <label class="p-1" for="age">Age</label>
-                            <input type="number" th:field="*{age}" class="form-control" placeholder="age"
-                                required>
+                            <input id="updateAge" type="number" class="form-control" placeholder="age"
+                                required min="18" max="65">
+                            <div class="invalid-feedback"></div>
                         </div>
 
                         <div class="row p-1">
                             <label class="p-1" for="course">Student Course</label>
-                            <select th:field="*{course}" class="form-select" required>
+                            <select id="updateCourse" class="form-select" required>
                                 <option value="" selected>select option</option>
                                 <option value="DevOps">DevOps</option>
                                 <option value="Python">Python</option>
@@ -299,9 +256,12 @@
                                 <option value="GCP">GCP</option>
                                 <option value="Terraform">Terraform</option>
                             </select>
+                            <div class="invalid-feedback"></div>
                         </div>
 
-                        <button type="submit" class="btn btn-primary mt-3 mb-2">Update Student</button>
+                        <div class="text-center">
+                            <button id="updateSubmit" type="button" class="btn btn-primary mt-3 mb-2">Update Student</button>
+                        </div>
                     </form>
                 </div>
 
@@ -317,11 +277,9 @@
         <div class="modal-dialog modal-dialog-centered">
             <div class="modal-content">
                 <div class="modal-body">
-                    <form class="p-2" th:action="@{/remove}" th:object="${student}" method="post">
-                        <!-- Alert message -->
-                        <div th:if="${alertMessage}" class="alert alert-danger">
-                            <p th:text="${alertMessage}"></p>
-                        </div>
+                    <form class="p-2" onsubmit="return false;">
+                        <!-- Alert message container -->
+                        <div id="deleteErrorMessage" class="alert alert-danger" role="alert" style="display: none;"></div>
 
                         <center>
                             <h4 style="font-family: 'Times New Roman', Times, serif;">Delete Student</h4>
@@ -329,10 +287,12 @@
 
                         <div class="row p-2">
                             <label class="p-1" for="id">Student ID</label>
-                            <input type="text" th:field="*{id}" class="form-control" placeholder="student id" required>
+                            <input id="deleteId" type="text" class="form-control" placeholder="student id" required readonly>
                         </div>
 
-                        <button type="submit" class="btn btn-danger mt-3 mb-2">Delete Student</button>
+                        <div class="text-center">
+                            <button id="deleteSubmit" type="button" class="btn btn-danger mt-3 mb-2">Delete Student</button>
+                        </div>
                     </form>
 
                 </div>
@@ -347,29 +307,56 @@
         <div class="modal-dialog modal-dialog-centered">
             <div class="modal-content">
                 <div class="modal-body">
-                    <form class="p-2" th:action="@{/remove/all}" th:object="${confirmationForm}" method="post">
+                    <form id="deleteAllForm" class="p-2" onsubmit="return false;">
                         <center>
                             <h4 style="font-family: 'Times New Roman', Times, serif;">Delete All Students</h4>
                         </center>
 
                         <div class="row p-2">
                             <label class="p-3 text-warning" for="confirmation">Type 'Yes' For Confirmation</label>
-                            <input type="text" th:field="*{confirmation}" class="form-control"
+                            <input id="deleteAllConfirmation" type="text" class="form-control"
                                 placeholder="confirmation" required>
                         </div>
-
-                        <button type="submit" class="btn btn-dark mt-3 mb-2">Delete All Students</button>
+                        <div class="text-center">
+                            <button id="deleteAllSubmit" type="button" class="btn btn-dark mt-3 mb-2">Delete All Students</button>
+                        </div>
                     </form>
                 </div>
             </div>
         </div>
     </div>
-    <div class="fixed"><a class="navbar-trainer" href="#"><i class="fa fa-align-center"
-        aria-hidden="true">&nbsp;&nbsp;Trainer: Balaji Reddy Lachhanngari.&nbsp;&nbsp;</i></a>
-        <a class="navbar-trainer" href="#"> <i class="fa fa-align-center"
-        aria-hidden="true">&nbsp;&nbsp;Contact Us: +91-8296242028, +91-9900012028</i></a></div>
-    <!-- bootstrap js -->
+
+    <!-- Footer with company logo and trainer info -->
+    <div class="footer-section">
+        <div class="company-section container">
+            <div class="d-flex align-items-center gap-3">
+                <img src="/img/RT_Logo.png" alt="Rushi Technologies Logo" class="company-logo">
+                <div class="d-none d-md-block">
+                    <div class="fw-bold">Rushi Technologies</div>
+                    <div class="small text-muted">Upskill · Labs · Placement support</div>
+                </div>
+            </div>
+
+            <div class="trainer-section ms-auto d-flex align-items-center">
+                <img src="/img/profiles/balajireddy.png" alt="Trainer Photo" class="trainer-photo"
+                    onerror="this.onerror=null;this.src='data:image/svg+xml;utf8,<svg xmlns=%22http://www.w3.org/2000/svg%22 width=%2264%22 height=%2264%22><rect width=%22100%25%22 height=%22100%25%22 fill=%22%23dddddd%22/><text x=%2250%25%22 y=%2255%25%22 font-size=%2220%22 text-anchor=%22middle%22 fill=%22%23666%22 font-family=%22Arial%22>BR</text></svg>';">
+                <div class="trainer-info ms-2 text-end text-md-start">
+                    <p class="trainer-name mb-1">Balaji Reddy Lachhanngari</p>
+                    <p class="trainer-contact mb-0 text-muted small">
+                        <i class="fa fa-phone"></i>&nbsp; +91-8296242028 &nbsp;&nbsp; <i class="fa fa-phone"></i>&nbsp; +91-9900012028
+                    </p>
+                </div>
+            </div>
+        </div>
+
+        <div class="footer-bottom text-center mt-3">
+            <small class="text-muted">© <span id="copyrightYear"></span> Rushi Technologies. All rights reserved.</small>
+        </div>
+    </div>
+
+    <!-- Place Bootstrap bundle at the end of body for better performance -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="/js/app.js"></script>
 </body>
 
 </html>
