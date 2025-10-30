@@ -4,10 +4,12 @@ spring:
     name: student-management
   data:
     mongodb:
-      #host: ${MONGODB_HOST_NAME}
-      host: localhost
+      host: ${DATABASE_HOST:localhost} # Default to localhost if not set
+      username: ${DATABASE_USERNAME:devdb} # Default to devdb if not set
+      password: ${DATABASE_PASSWORD:devdb@123} # Default to devdb@123 if not set
       port: 27017
       database: stms
+      authentication-database: admin
   thymeleaf:
     prefix: classpath:/templates/
     suffix: .html

@@ -167,6 +167,10 @@ body { background: #fbfcfe; }
     margin: 0;
 }
 
+/* Mobile adjustments: center and stack */
+.media-responsive-tweaks {
+    /* placeholder if further responsive tweaks are needed */
+}
 
 @media (max-width: 768px) {
     .company-section {
@@ -188,4 +192,51 @@ body { background: #fbfcfe; }
     .company-logo { width: 120px; }
     .trainer-photo { width: 56px; height: 56px; }
     .trainer-name { font-size: 0.95rem; }
+}
+
+/* === Modern gradient buttons (header/footer) === */
+.btn-icon i { margin-right: 6px; }
+
+.btn-gradient-blue {
+  background-image: linear-gradient(90deg, #007bff 0%, #00b4d8 100%);
+  color: #fff !important;
+  border: 0;
+  box-shadow: 0 6px 14px rgba(0, 123, 255, 0.25);
+  transition: transform .15s ease, box-shadow .15s ease, filter .2s ease;
+}
+.btn-gradient-blue:hover { 
+  filter: brightness(1.06);
+  box-shadow: 0 8px 18px rgba(0, 123, 255, 0.35);
+  transform: translateY(-1px);
+}
+
+.btn-youtube {
+  background-color: #ff0000;
+  color: #fff !important;
+  border: 0;
+  box-shadow: 0 6px 14px rgba(255, 0, 0, 0.25);
+  transition: transform .15s ease, box-shadow .15s ease, filter .2s ease;
+}
+.btn-youtube:hover {
+  background-color: #e60000;
+  box-shadow: 0 8px 18px rgba(255, 0, 0, 0.35);
+  transform: translateY(-1px);
+}
+
+/* Pill shape + sizing tweaks */
+.header-actions .btn {
+  border-radius: 999px;
+  padding: .48rem .95rem;
+}
+
+/* Footer buttons slightly smaller and subtler */
+.footer-cta .btn {
+  border-radius: 999px;
+  padding: .42rem .85rem;
+  transform: scale(0.92);
+  opacity: 0.95;
+}
+.footer-cta .btn:hover {
+  transform: scale(0.94) translateY(-1px);
+  opacity: 1;
 }
